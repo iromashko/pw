@@ -6,24 +6,33 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  password = "";
   includeLetters = false;
   includeNumbers = false;
   includeSymbols = false;
-  password = "";
-
+  length = 0;
   onButtonClick() {
-    this.password = "YOUR PASSWORD";
+    console.log(`
+      Generate password:
+      Letters: ${this.includeLetters}
+      Numbers: ${this.includeNumbers}
+      Symbols: ${this.includeSymbols}
+    `);
+    this.password = "my password";
   }
-  onChangeUseLetters() {
-    console.log(this.includeLetters);
+  onChangeIncludeLetters() {
     this.includeLetters = !this.includeLetters;
   }
-  onChangeUseNumbers() {
-    console.log(this.includeNumbers);
+  onChangeIncludeNumbers() {
     this.includeNumbers = !this.includeNumbers;
   }
-  onChangeUseSymbols() {
-    console.log(this.includeSymbols);
+  onChangeIncludeSymbols() {
     this.includeSymbols = !this.includeSymbols;
+  }
+  onChangeLength(value: string) {
+    const parsedValue = parseInt(value, 10);
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+    }
   }
 }
