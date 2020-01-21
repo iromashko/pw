@@ -4,22 +4,30 @@
   <input type="text" (input)="onChangeLength($event.target.value)" />
 </div>
 <div>
-  <label for="">Use Numbers</label>
-  <input type="checkbox" (change)="onChangeIncludeNumbers()" />
+  <label for="">Use Letters</label>
+  <input type="checkbox" (change)="onIncludeLettersChange()" />
 </div>
 <div>
-  <label for="">Use Letters</label>
-  <input type="checkbox" (change)="onChangeIncludeLetters()" />
+  <label for="">Use Numbers</label>
+  <input type="checkbox" (change)="onIncludeNumbersChange()" />
 </div>
 <div>
   <label for="">Use Symbols</label>
-  <input type="checkbox" (change)="onChangeIncludeSymbols()" />
+  <input type="checkbox" (change)="onIncludeSymbolsChange()" />
 </div>
 <div>
-  <button (click)="onButtonClick()">Generate</button>
+  <button
+    [disabled]="
+      !(length && (includeLetters || includeNumbers || includeSymbols))
+    "
+    (click)="onButtonClick()"
+  >
+    Generate!
+  </button>
 </div>
 <div>
   <label for="">Your Password</label>
   <input type="text" [value]="password" />
 </div>
+
 {{ password }}
