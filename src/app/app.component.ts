@@ -12,9 +12,9 @@ export class AppComponent {
   includeNumbers = false;
   includeSymbols = false;
   onButtonClick() {
-    const numbers = "1234567890";
+    const numbers = "0123456789";
     const letters = "abcdefghijklmnopqrstuvwxyz";
-    const symbols = "!#$#$%(#*%)^";
+    const symbols = "$#*&%(*&)#%*#*%^(*&@#";
 
     let validChars = "";
     if (this.includeLetters) {
@@ -42,10 +42,10 @@ export class AppComponent {
   onIncludeSymbolsChange() {
     this.includeSymbols = !this.includeSymbols;
   }
-  onChangeLength(value: string) {
-    const parsedLength = parseInt(value, 10);
-    if (!isNaN(parsedLength)) {
-      this.length = parsedLength;
+  onEnterLengthChange(value: string) {
+    const parsedValue = parseInt(value, 10);
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
     }
   }
 }

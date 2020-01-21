@@ -1,33 +1,33 @@
-<h1>Password Generator</h1>
-<div>
-  <label for="">Enter Length</label>
-  <input type="text" (input)="onChangeLength($event.target.value)" />
-</div>
-<div>
-  <label for="">Use Letters</label>
-  <input type="checkbox" (change)="onIncludeLettersChange()" />
-</div>
-<div>
-  <label for="">Use Numbers</label>
-  <input type="checkbox" (change)="onIncludeNumbersChange()" />
-</div>
-<div>
-  <label for="">Use Symbols</label>
-  <input type="checkbox" (change)="onIncludeSymbolsChange()" />
-</div>
-<div>
+<mat-card fxLayout="column" fxLayoutAlign="space-between stretch">
+  <h1>Password Generator</h1>
+
+  <mat-form-field>
+    <input
+      (input)="onEnterLengthChange($event.target.value)"
+      matInput
+      placeholder="Enter Length"
+    />
+  </mat-form-field>
+
+  <mat-checkbox (change)="onIncludeLettersChange()">Use Letters</mat-checkbox>
+  <mat-checkbox (change)="onIncludeNumbersChange()">Use Numbers</mat-checkbox>
+  <mat-checkbox (change)="onIncludeSymbolsChange()">Use Symbols</mat-checkbox>
+
   <button
+    mat-stroked-button
     [disabled]="
       !(length && (includeLetters || includeNumbers || includeSymbols))
     "
     (click)="onButtonClick()"
   >
-    Generate!
+    Generate Password
   </button>
-</div>
-<div>
-  <label for="">Your Password</label>
-  <input type="text" [value]="password" />
-</div>
 
-{{ password }}
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Your Password"
+      [value]="password"
+    ></textarea>
+  </mat-form-field>
+</mat-card>
