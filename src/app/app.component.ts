@@ -12,9 +12,9 @@ export class AppComponent {
   includeNumbers = false;
   includeSymbols = false;
   onButtonClick() {
-    const numbers = "0123456789";
-    const letters = "abcdefghijklmnopqrstuvwxyz";
-    const symbols = "$#*&%(*&)#%*#*%^(*&@#";
+    const letters = "abcdefghigklmnopqrstuvwxyz";
+    const numbers = "1234567890";
+    const symbols = "$#$%*^&(#$(*&(^";
 
     let validChars = "";
     if (this.includeLetters) {

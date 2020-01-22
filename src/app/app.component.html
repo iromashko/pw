@@ -1,4 +1,4 @@
-<mat-card fxLayout="column" fxLayoutAlign="space-evenly stretch">
+<mat-card fxLayout="column" fxLayoutAlign="space-between stretch">
   <h1>Password Generator</h1>
 
   <mat-form-field>
@@ -23,12 +23,13 @@
     Generate Password
   </button>
 
-  <mat-form-field>
+  <mat-form-field *ngIf="password">
     <textarea
       cdkTextareaAutosize
       matInput
       placeholder="Your Password"
       [value]="password"
-    ></textarea>
+    >
+    </textarea>
   </mat-form-field>
 </mat-card>
